@@ -50,7 +50,7 @@ function Signup() {
         toast.success("Login Successful 🚀");
 
         setTimeout(() => {
-          window.location.replace(`${process.env.REACT_APP_DASHBOARD_URL}`);
+          window.location.replace(process.env.REACT_APP_DASHBOARD_URL);
         }, 1000);
       } else {
         //  SIGNUP API
@@ -66,6 +66,9 @@ function Signup() {
             email: "",
             password: "",
           });
+          setTimeout(() => {
+            window.location.replace(process.env.REACT_APP_DASHBOARD_URL);
+          }, 1000);
 
           setIsLogin(true);
         }, 1000);
