@@ -8,7 +8,7 @@ function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    window.location.href = `${process.env.REACT_APP_DASHBOARD_URL}/signup`;
+    window.location.href =  process.env.REACT_APP_FRONTEND_URL;
     return null;
   }
 
