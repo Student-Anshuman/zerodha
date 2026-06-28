@@ -7,12 +7,15 @@ import GeneralContext from "./GeneralContext";
 
 import "./BuyActionWindow.css";
 
+
 const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
+  // console.log(process.env.BACKND_URL);
+  
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:3002/newOrder", {
+    axios.post("http://localhost:5000/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
