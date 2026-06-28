@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 
 // Toast Imports
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
+
 function Signup() {
-  const navigate = useNavigate(); // ⭐ React Router navigation
+  console.log(process.env.REACT_APP_BACKEND_URL)
 
   const [isLogin, setIsLogin] = useState(true);
 
@@ -32,7 +35,8 @@ function Signup() {
     try {
       if (isLogin) {
         //  LOGIN API
-        const res = await axios.post("http://localhost:5000/api/auth/login", {
+
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, {
           email: formData.email,
           password: formData.password,
         });
@@ -46,13 +50,13 @@ function Signup() {
         toast.success("Login Successful 🚀");
 
         setTimeout(() => {
-          window.location.replace("http://localhost:3001");
+          window.location.replace(`${process.env.REACT_APP_DASHBOARD_URL}`);
         }, 1000);
       } else {
-        // ⭐ SIGNUP API
-        
+        //  SIGNUP API
 
-        await axios.post("http://localhost:5000/api/auth/signup", formData);
+
+        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, formData);
 
         toast.success("Account Created Successfully 🎉");
 
@@ -66,11 +70,7 @@ function Signup() {
           setIsLogin(true);
         }, 1000);
 
-        // setFormData({
-        //   name: "",
-        //   email: "",
-        //   password: "",
-        // });
+        
       }
     } catch (err) {
       console.log(err);

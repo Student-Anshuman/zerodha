@@ -10,18 +10,24 @@ import ProductPage from "./landing_page/products/ProductsPage";
 import PricingPage from "./landing_page/pricing/PricingPage";
 import SupportPage from "./landing_page/support/SupportPage";
 
-// import Home from "./dashboard/components/Home";
+
 import NotFound from "./landing_page/NotFound";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 
+
+
 function App() {
+  
   const location = useLocation();
 
   const isDashboard = location.pathname.startsWith("/dashboard");
+  
 
   return (
     <>
+      
+      
       {!isDashboard && <Navbar />}
 
       <Routes>
@@ -46,6 +52,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
-    <App />
+   <App />
   </BrowserRouter>
 );
