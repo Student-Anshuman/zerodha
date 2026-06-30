@@ -7,10 +7,10 @@ import Home from "./components/Home";
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
 
-  // if (!token) {
-  //   window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/signup`;
-  //   return null;
-  // }
+  if (!token) {
+    window.location.href = process.env.REACT_APP_FRONTEND_URL;
+    return null;
+  }
 
   return children;
 }
