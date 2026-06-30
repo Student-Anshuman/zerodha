@@ -6,8 +6,10 @@ import Home from "./components/Home";
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
+  console.log("Token:", token);
 
   if (!token) {
+    console.log("Redirecting to signup...");
     window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/signup`;
     return null;
   }
